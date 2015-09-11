@@ -1,5 +1,11 @@
 $(document).ready(function(){
-
-   // jQuery methods go here...
-
+    
+    $( '#keyboard-upper-container' ).hide(function() {
+             $( ".div" ).keypress();
+    });
+    
+    $( '#keyboard-lower-container' ).show(function() {
+             $( ".div" ).keypress();
+    });
+      
 });
