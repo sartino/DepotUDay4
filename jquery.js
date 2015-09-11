@@ -19,6 +19,7 @@ $(document).ready(function(){
        line.append($('<div class="letter"></div>').html(letter));
         });
         lines.push(line);
+
     });
 
     $('.test').append(lines[lineCount]);
@@ -38,11 +39,13 @@ $(document).ready(function(){
         if (event.which === 16) {
             $( "#keyboard-upper-container" ).hide();
             $( "#keyboard-lower-container" ).show();
-        }
+        } else {
+   $('.key').removeClass('highlight');
+   }
     });
-    
+
    $(document).keypress(function(e) {
-        var pressKey =e.charCode;
+        var pressKey = e.charCode;
         var letter = String.fromCharCode(pressKey);
         $('#'+pressKey).addClass('highlight');
         $('#'+letter).addClass('highlight');
