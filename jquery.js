@@ -41,13 +41,20 @@ $(document).ready(function(){
         }
     });
     
-    $(document).keypress(function(e) { 
-        var s = String.fromCharCode(e.which);
+   $(document).keypress(function(e) {
+        var pressKey =e.charCode;
+        var letter = String.fromCharCode(pressKey);
+        $('#'+pressKey).addClass('highlight');
+        $('#'+letter).addClass('highlight');
+    });
+        
+        
+     /* var s = String.fromCharCode(e.which);
         if (s.match(/[a-zA-Z\.]/),([32]));
             return
         //console.log(s + ' is a match!');
     });
-
+*/
 
 
 });
