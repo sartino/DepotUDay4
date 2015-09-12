@@ -7,6 +7,7 @@ $(document).ready(function(){
         'nee ene ate ite tent tiet ent ine ene ete ene ate'];
     var lines = [];
     var lineCount = 0;
+    
     $(sentences).each(function(){
         var letters = this.split('');
         console.log(letters);
@@ -51,6 +52,7 @@ $(document).ready(function(){
         $('#'+letter).addClass('highlight');
     });
         
+    $(document.body).append(sentences);
         
      /* var s = String.fromCharCode(e.which);
         if (s.match(/[a-zA-Z\.]/),([32]));
