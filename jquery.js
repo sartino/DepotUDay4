@@ -7,7 +7,6 @@ $(document).ready(function(){
         'nee ene ate ite tent tiet ent ine ene ete ene ate'];
     var lines = [];
     var lineCount = 0;
-    
     $(sentences).each(function(){
         var letters = this.split('');
         console.log(letters);
@@ -23,7 +22,7 @@ $(document).ready(function(){
 
     });
 
-    $('.test').append(lines[lineCount]);
+    $('#words').append(lines[lineCount]);
     
     $( "#keyboard-upper-container" ).hide();
     $( "#keyboard-lower-container" ).show();
@@ -51,8 +50,9 @@ $(document).ready(function(){
         $('#'+pressKey).addClass('highlight');
         $('#'+letter).addClass('highlight');
     });
+      
         
-    $(document.body).append(sentences);
+    //$(document.body).append(sentences[0]);
         
      /* var s = String.fromCharCode(e.which);
         if (s.match(/[a-zA-Z\.]/),([32]));
