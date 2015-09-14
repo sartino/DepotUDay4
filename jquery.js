@@ -27,10 +27,11 @@ $(document).ready(function(){
 
     $('#words').append(lines[lineCount]);
     
+    //hide upper case keyboard upon page load
     $( "#keyboard-upper-container" ).hide();
     $( "#keyboard-lower-container" ).show();
     
-    
+    //toggle keyboards when pressing 'space' button
     $(document).keydown(function(e) {
         if (e.which === 16) {
             $( "#keyboard-lower-container" ).hide();
