@@ -7,6 +7,9 @@ $(document).ready(function(){
         'nee ene ate ite tent tiet ent ine ene ete ene ate'];
     var lines = [];
     var lineCount = 0;
+    var lastKeyPressed = '';
+    var currentLetterInSentence = '';
+    
     $(sentences).each(function(){
         var letters = this.split('');
         console.log(letters);
@@ -19,7 +22,7 @@ $(document).ready(function(){
        line.append($('<div class="letter"></div>').html(letter));
         });
         lines.push(line);
-
+        
     });
 
     $('#words').append(lines[lineCount]);
@@ -44,13 +47,34 @@ $(document).ready(function(){
    }
     });
 
+ //get letter user should press
+ $(sentences).each(function(sentenceIndex){
+     if(sentenceIndex == 0){ //when on first sentence
+        var letters = this.split('');
+        console.log(letters);
+        currentLetterInSentence = letters[0];
+      $('#centerbox').append().html(currentLetterInSentence); 
+     }
+    });
+ 
+ var highlightLetterRight = function(){
+     $('.letters').children().first().before('<span class="glyphicon glyphicon-ok"></span>');
+ }
+ 
    $(document).keypress(function(e) {
         var pressKey = e.charCode;
         var letter = String.fromCharCode(pressKey);
         $('#'+pressKey).addClass('highlight');
         $('#'+letter).addClass('highlight');
+         lastKeyPressed = letter;
+          console.log(lastKeyPressed);          
+          if(lastKeyPressed === currentLetterInSentence){
+          console.log('last key press equals letter');
+          highlightLetterRight();
+          }
     });
       
+
         
     //$(document.body).append(sentences[0]);
         
