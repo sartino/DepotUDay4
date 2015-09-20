@@ -1,3 +1,7 @@
+    //hide upper case keyboard upon page load
+    $( "#keyboard-upper-container" ).hide();
+   // $( "#keyboard-lower-container" ).show();
+   
 $(document).ready(function(){
     
     var sentences = ['ten ate neite ate nee enet ite ate inet ent eate',
@@ -27,11 +31,25 @@ $(document).ready(function(){
 
     $('#words').append(lines[lineCount]);
     
-    //hide upper case keyboard upon page load
-    $( "#keyboard-upper-container" ).hide();
-    $( "#keyboard-lower-container" ).show();
+    //toggle keyboards when pressing 'shift' button
+  /*  function showShiftKeys(event) {
+        if(event.shiftKey) {
+            $('#keyboard-upper-container').show();
+            $('#keyboard-lower-container').hide();
+        }
+    };
     
-    //toggle keyboards when pressing 'space' button
+  function hideShiftKeys(event) {
+        if(!event.shiftKey) {
+            $('#keyboard-upper-container').hide();
+            $('#keyboard-lower-container').show();
+        }
+    };
+    
+    $(document).on('keydown', function(e) {
+        showShiftKeys(e);
+    });  */
+    
     $(document).keydown(function(e) {
         if (e.which === 16) {
             $( "#keyboard-lower-container" ).hide();
@@ -46,7 +64,7 @@ $(document).ready(function(){
         } else {
    $('.key').removeClass('highlight');
    }
-    });
+    });  
 
  //get letter user should press
  $(sentences).each(function(sentenceIndex){
@@ -74,9 +92,7 @@ $(document).ready(function(){
           highlightLetterRight();
           }
     });
-      
-
-        
+          
     //$(document.body).append(sentences[0]);
         
      /* var s = String.fromCharCode(e.which);
@@ -85,6 +101,5 @@ $(document).ready(function(){
         //console.log(s + ' is a match!');
     });
 */
-
 
 });
